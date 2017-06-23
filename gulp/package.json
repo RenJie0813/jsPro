@@ -1,0 +1,34 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "test for gulp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "author": "jj",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-asset-rev": "0.0.15",
+    "gulp-babel": "^6.1.2",
+    "gulp-changed": "^3.1.0",
+    "gulp-clean-css": "^3.2.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-less": "^3.3.0",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-collector": "^1.2.1",
+    "gulp-rev-format": "^1.0.4",
+    "gulp-rev-replace": "^0.4.3",
+    "gulp-uglify": "file:node_modules\\gulp-uglify",
+    "gulp-useref": "^3.1.2",
+    "imagemin-pngquant": "^5.0.0"
+  }
+}

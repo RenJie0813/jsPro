@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="../../styleSheets/BG_manage.css">
+</head>
+
+<body>
+<div>
+    <header class="header">
+        <div class="header_title">
+            <div class="head_left"><a id="backToIndex">后台管理系统</a></div>
+            <div class="head_right"><span class="header_user">欢迎你 <span class="userSpan"></span>,<a style="color:#39A3F9" id="loginOut" >登出</a></span></div>
+        </div>
+    </header>
+    <div class="panel">
+        <div class="panel_item">
+            <a style="background-color:#EE735C;" href="../../views/server/list.html">服务列表</a>
+            <a style="background-color:#D94C59;" href="../../views/BGManager/list.html">BG管理</a>
+            <a style="background-color:#FEC536;" href="../../views/version/list.html">版本管理</a>
+        </div>
+    </div>
+</div>
+    <section id="container">
+
+        <!--  头行start   -->
+        <div class="head">
+            <button type="button" class="btn" id="add">添加BG</button>
+        </div>
+        <!--  头行end   -->
+
+        <!--  列表层start   -->
+        <div class="datalist">
+            <table>
+                <thead>
+                    <tr>
+                        <td class="on">业务组</td>
+                        <td>编号</td>
+                        <td class="on">版本号</td>
+                        <td>domain</td>
+                        <td>status</td>
+                        <td>codeStatus</td>
+                        <td class="on">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <!--  列表层end   -->
+
+        <!-- 弹出层start -->
+        <div class="background">
+            <div class="modal animated">
+                <p>
+                    <span class="title">添加BG</span>
+                    <span class="close">x</span>
+                </p>
+                <div class="form">
+                    <form action="" id="formData">
+                        <table>
+                            <tr>
+                                <td>业务组：</td>
+                                <td>
+                                    <input type="text" name="name" id="name" class="sendtxt input" maxlength="9">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>版本号：</td>
+                                <td>
+                                  <div class="contain">
+                                      <select id="version" name="version" class="input">
+                                          <option value="">请选择</option>
+                                      </select>
+                                      <span>————请选择————</span>
+                                  </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>domain：</td>
+                                <td>
+                                    <input type="text" name="domain" id="domain" class="sendtxt input">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>dbServer：</td>
+                                <td>
+                                    <div class="contain">
+                                        <select name="dbServer" id="dbServer" class="input">
+                                            <option value="">请选择</option>
+                                        </select>
+                                        <span>————请选择————</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>logDBServer：</td>
+                                <td>
+                                    <div class="contain">
+                                        <select name="logDBServer" id="logDBServer" class="input">
+                                            <option value="">请选择</option>
+                                        </select>
+                                        <span>————请选择————</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>codeStatus：</td>
+                                <td>
+                                    <div class="contain">
+                                        <select name="codeStatus" id="codeStatus" class="input">
+                                            <option value="">请选择</option>
+                                            <option value="0">研发中</option>
+                                            <option value="1">测试</option>
+                                            <option value="2">正式</option>
+                                        </select>
+                                        <span>————请选择————</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>sslKey：</td>
+                                <td>
+                                    <textarea name="sslKey" id="sslKey" rows="2"  class="sendtxt input" onpropertychange= "this.style.posHeight=this.scrollHeight"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>sslCrt：</td>
+                                <td>
+                                    <textarea type="text" name="sslCrt"  id="sslCrt" class="sendtxt input" onpropertychange= "this.style.posHeight=this.scrollHeight"></textarea>
+                                </td>
+                            </tr>
+                            <tr class="two hide">
+                                <td>sslKey1：</td>
+                                <td>
+                                    <textarea name="sslKey1" id="sslKey1" rows="2"  class="sendtxt input" onpropertychange= "this.style.posHeight=this.scrollHeight"></textarea>
+                                </td>
+                            </tr>
+                            <tr class="two hide">
+                                <td>sslCrt1：</td>
+                                <td>
+                                    <textarea type="text" name="sslCrt1"  id="sslCrt1" class="sendtxt input" onpropertychange= "this.style.posHeight=this.scrollHeight"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="last">
+                                    <button class="btn sub">确认添加</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
+                    <!--数据显示层-->
+                    <form action="" id="viewData" class="hide">
+                        <table>
+                            <tr>
+                                <td>编号：</td>
+                                <td>
+                                    <input type="text" id="v-index" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>业务组：</td>
+                                <td>
+                                    <input type="text" id="v-name" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>版本号：</td>
+                                <td>
+                                    <input type="text" id="v-version" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>domain：</td>
+                                <td>
+                                    <input type="text" id="v-domain" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>dbServer：</td>
+                                <td>
+                                    <input type="text" id="v-dbServer" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>logDBServer：</td>
+                                <td>
+                                    <input type="text" id="v-log" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>codeStatus：</td>
+                                <td>
+                                    <input type="text" id="v-codeStatus" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>sslKey：</td>
+                                <td>
+                                    <input type="text" id="v-sslKey" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>sslCrt：</td>
+                                <td>
+                                    <input type="text" id="v-sslCrt" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr class="show-two hide">
+                                <td>sslKey1：</td>
+                                <td>
+                                    <input type="text" id="v-sslKey1" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr class="show-two hide">
+                                <td>sslCrt1：</td>
+                                <td>
+                                    <input type="text" id="v-sslCrt1" class="view input" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="last">
+                                    <button class="btn ed">编辑</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
+                    <!--编辑层-->
+                    <div id="editDiv" class="hide">
+                        <div class="top-edit">〈&nbsp;返回</div>
+                        <div class="sub-add"><input type="button" value="保存"></div>
+
+                        <div class="addTitle"><p>AgentServers Manage</p></div>
+
+                        <div class="insert">
+                            <a id="addLine" href="javascript:void(0)">点击增加</a>
+                        </div>
+
+                        <!--游戏服务器添加-->
+                        <div class="insert_p hide">
+                            <div>
+                                <i>IP：</i>
+                                <p class="contain">
+                                    <select name="" id="gameIpSelect" class="input">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <span id="gameIp">————请选择————</span>
+                                </p>
+                            </div>
+                            <p class="num_p">
+                                <i>进程数：</i><input type="number" class="num input" id="num" value="0" maxlength="3" min="0">
+                            </p>
+                            <div>
+                               <i>游戏名：</i>
+                                <p class="contain">
+                                    <select name="" id="gameSelect" class="input">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <span id="game">————请选择————</span>
+                                </p>
+                            </div>
+                            <div class="left_Div">
+                                <input type="button" class="addBtn" value="添加">
+                            </div>
+                        </div>
+
+                        <!--agent添加-->
+                        <div class="insert_a hide">
+                            <div>
+                                <i>IP：</i>
+                                <p class="contain">
+                                    <select name="" id="agentIpSelect" class="input">
+                                        <option value="">请选择</option>
+                                    </select>
+                                    <span id="agentIp">————请选择————</span>
+                                </p>
+                            </div>
+                            <div class="left_Div">
+                                <input type="button" class="addBtn" value="添加">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 弹出层end -->
+
+        <!--loading start-->
+        <div class="load">
+            <div class="loadPress">
+                <div class="loader">
+                    <div class="pacman wait">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <p class="wait">处理中，请稍后...</p>
+                    <p class="suc hide"><span>操作成功！</span></p>
+                </div>
+            </div>
+        </div>
+        <!--loading end-->
+
+    </section>
+    <script src="../../javaScripts/zepto.min.js"></script>
+    <script src="../../javaScripts/common.js"></script>
+    <script src="../../javaScripts/utils/CommonMethods.js"></script>
+    <script src="../../javaScripts/BG/BG.js"></script>
+</body>
+
+</html>

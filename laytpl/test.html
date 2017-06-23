@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: royalblue;
+        }
+        
+        .msg {
+            font-style: italic;
+            color: #333;
+        }
+        
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script id="tpl" type="text/html" src="header.html">
+        <h1>{{d.title}}</h1>
+        <p class="msg">
+            {{ d.info.toUpperCase() }} {{ get(d.isOk==1?'success':'failure') }}
+        </p>
+        <ul>
+            {{# for(var i=0,len=d.list.length;i
+            <len;i++) { }} <li>
+                <span>{{d.list[i].name}}:</span>
+                <span>{{ get(d.list[i].age) }}</span>
+                </li>
+                {{# } }}
+        </ul>
+    </script>
+    <div id="demo"></div>
+
+    <script src="./laytpl.js"></script>
+    <script>
+        laytpl.config({
+            cache: false,
+            min: true,
+            open: '{{',
+            close: '}}'
+        });
+
+        var data = {
+            title: 'Demo Page',
+            info: 'test for template：',
+            isOk: false,
+            list: [{
+                name: 'tom',
+                age: 23
+            }, {
+                name: 'mary',
+                age: 53
+            }, {
+                name: 'jerry',
+                age: 33
+            }]
+        };
+        var html = document.getElementById('tpl').innerHTML;
+        laytpl(html).render(data, function(result) {
+            document.getElementById('demo').innerHTML = result;
+        });
+
+        function get(str) {
+            return str + '岁';
+        }
+    </script>
+</body>
+
+</html>

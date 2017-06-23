@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>后台管理</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <style type="text/css" rel="stylesheet">
+        body{width:100%;margin:0;padding:0;font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
+        .header{height:40px;width:100%;background-color:#242424;position:fixed;overflow:hidden;}
+        .header_title{line-height:40px;margin-left:5%;color:#fff;font-size:15px;}
+        .header_user{font-size:12px;margin-left:20px;color:#ccc;}
+        .panel{width:100%;height:80%;padding-top:40px;background-color:#242424;padding-bottom: 5px}
+        .panel_item{width:100%;height:45px}
+        a{text-decoration: none;color:#fff;}
+        .panel_item>a{width:15%;height:45px;display:inline-block;line-height:45px;font-size:1.5rem;color:#fff;text-align:center;margin-left:5px;}
+        table{width:90%;margin-left:auto;margin-right:auto;margin-top:0px;font-size:1rem;border-collapse:collapse;border-spacing:0;margin-bottom:50px;table-layout:fixed;}
+        table td{font-size:1rem;border:1px solid #ddd;padding:0;height:40px;white-space:nowrap;overflow:hidden;word-break:break-all;font-weight:300;text-overflow: ellipsis;}
+        table td:last-of-type{width: 20%}
+
+        /*table tr:hover{background-color:#36A0FB;color:#fff !important;cursor: pointer}*/
+        .userSpan{text-decoration: underline}
+        .serverList{padding-top:8%;text-align: center;width:100%;}
+        .th{text-align:center;font-size:1.3rem;height:50px;line-height: 50px;color:#fff;background-color:#36A0FB;border:0;}
+        .lineData{text-align:center;height:26px;color:#4C4C4C;}
+        .add{padding-top: 50px;padding-bottom: 20px;position: relative;z-index: 1;}
+        .add select{width:100px;height:2rem;margin-bottom:10px;outline:none;padding-left: 10px;line-height: 1.2rem;font-size:  1.2rem}
+        #btn{    color: #36A0FB;
+            font-weight: 500;
+            border: 1px solid #36A0FB;
+            display: inline-block;
+            padding: 0 2rem;
+            cursor: pointer;
+            height: 3rem;
+            line-height: 1.5rem;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            background-color: #fff;
+            float: right;
+            margin-right: 20px;
+        }
+        .head_left{float: left}
+        .head_right{float: right;margin-right:20px}
+        .head_mid{position: absolute;left: 45%}
+        .chooseCate{position: absolute;left: 5%;padding-top: 10px}
+        .chooseCate>span{font-size: 1.2rem}
+        .editBtn{ color: #39A3F9;cursor: pointer}
+        .deleteBtn{ color: #EE735C ;cursor: pointer}
+    </style>
+    <link rel="stylesheet" href="../../styleSheets/media.css?v=5d23a57ae8">
+</head>
+<body>
+<div>
+    <div class="header">
+        <div class="header_title">
+            <div class="head_left"><a id="backToIndex">后台管理系统</a></div>
+            <div class="head_right"><span class="header_user">欢迎你 <span class="userSpan"></span>,<a style="color:#39A3F9" id="loginOut" >登出</a></span></div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel_item">
+            <a style="background-color:#EE735C;" href="../../views/server/list.html">服务列表</a>
+            <a style="background-color:#D94C59;" href="../../views/BGManager/list.html">BG管理</a>
+            <a style="background-color:#FEC536;" href="../../views/version/list.html">版本管理</a>
+        </div>
+    </div>
+</div>
+<div class="add">
+    <div class="chooseCate">
+        <span>用途分类: </span><select id="useType" name="useType">
+        <option value=-1>全部</option>
+        <option value=0>Master db</option>
+        <option value=1>Cust db</option>
+        <option value=2>Log db</option>
+        <option value=3>Game</option>
+        <option value=4>Agent</option>
+    </select>
+    </div>
+    <button type="button" id="btn">服务添加</button>
+</div>
+<div class="serverList">
+    <table id="tb">
+
+    </table>
+
+</div>
+<script type="text/javascript" src="../../javaScripts/zepto.min.js?v=44b1ed8427"></script>
+<script src="../../javaScripts/utils/CommonMethods.js?v=c5762340e4"></script>
+<script src="../../javaScripts/common.js?v=bea3688bb4"></script>
+<script src="../../javaScripts/server/list.js?v=b3e4279fe8"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+"use strict";function checkLoged(){localStorage.getItem("user")||(location.href="./views/login.html")}checkLoged();

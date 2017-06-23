@@ -1,0 +1,1056 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-indent: 0;
+}
+
+.input {
+    outline: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: auto;
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 10px;
+    overflow-x: hidden;
+    color: #303030;
+}
+
+.header {
+    height: 40px;
+    width: 100%;
+    background-color: #242424;
+    position: fixed;
+    overflow: hidden;
+}
+
+.header_title {
+    line-height: 40px;
+    margin-left: 5%;
+    color: #fff;
+    font-size: 15px;
+}
+
+.header_user {
+    font-size: 12px;
+    margin-left: 20px;
+    color: #ccc;
+}
+
+.panel {
+    width: 100%;
+    height: 80%;
+    padding-top: 40px;
+    background-color: #242424;
+    padding-bottom: 5px
+}
+
+.panel_item {
+    width: 100%;
+    height: 45px
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.panel_item > a {
+    width: 15%;
+    height: 45px;
+    display: inline-block;
+    line-height: 45px;
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.header_user {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.head_left {
+    float: left
+}
+
+.head_right {
+    float: right;
+    margin-right: 20px
+}
+
+.head_mid {
+    position: absolute;
+    left: 45%
+}
+
+/*   public style end  */
+
+#container {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0 2rem;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3.6rem;
+    color: #333;
+    padding: 1.6rem 0 0 0;
+}
+
+.head {
+    margin: 4.2rem 0 .2rem;
+    width: 100%;
+    height: 3rem;
+    text-align: right;
+    display: block;
+    overflow: hidden;
+}
+
+.btn,
+.text {
+    height: 3rem;
+    line-height: 2rem;
+    font-size: 1.8rem;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.btn {
+    color: #36A0FB;
+    font-weight: 600;
+    border: 1px solid #36A0FB;
+    display: inline-block;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #36A0FB;
+    color: #fff;
+}
+
+.datalist > table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: center;
+    table-layout: fixed;
+    cursor: pointer;
+}
+
+#container .datalist table tbody tr:hover {
+    background-color: #F9f9f9;
+}
+
+.datalist > table thead tr td {
+    background-color: #36A0FB;
+    color: #fff;
+    padding: 1.4rem .2rem 1.4rem 0;
+    border: 1px solid #fff;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.datalist > table tbody tr td {
+    color: #333;
+    padding: 1.4rem .2rem 1.4rem 0;
+    word-break: keep-all;
+    /* 不换行 */
+    white-space: nowrap;
+    /* 不换行 */
+    overflow: hidden;
+    /* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow: ellipsis;
+    /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+
+.datalist > table tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.datalist > table tbody tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.datalist .edit {
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 .4rem;
+    text-align: center;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: .4rem;
+}
+
+.trans {
+    transition: .2s ease-in;
+    -webkit-transition: .2s ease-in;
+    -moz-transition: .2s ease-in;
+}
+
+.datalist .edit {
+    border: 2px solid #36A0FB;
+    color: #36A0FB;
+}
+
+.datalist .edit:hover {
+    background-color: #36A0FB;
+    color: #fff;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+}
+
+/*弹出层style*/
+
+.background {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background: rgba(250, 250, 250, .8);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal {
+    width: 84%;
+    min-height: 48rem;
+    margin: 4.5rem auto 2rem;
+    border: 1px solid #eee;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 2rem;
+    font-size: 1.6rem;
+    color: #666;
+    position: relative;
+}
+
+.modal p {
+    font-size: 2rem;
+    font-weight: 600;
+    display: block;
+    overflow: hidden;
+    color: #333;
+    margin-bottom: .4rem;
+}
+
+.modal .close {
+    float: right;
+    cursor: pointer;
+    padding: 0 .4rem;
+    transform: scale(1.6);
+    -webkit-transform: scale(1.6);
+}
+
+.modal .form textarea {
+    resize: none;
+    height: 6rem;
+}
+
+.modal .close:hover {
+    color: #CA572A;
+}
+
+.modal .form {
+    border-top: 1px solid #333;
+}
+
+.form table {
+    width: 98%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.form table tbody tr td {
+    padding: 1.2rem 1rem .8rem 0;
+    height: 4rem;
+    line-height: 4rem;
+}
+
+.form table tbody tr td:first-child {
+    text-align: right;
+    width: 20%;
+}
+
+.modal .form .last {
+    text-align: center;
+}
+
+.form .sub {
+    width: 40rem;
+    background-color: #36A0FB;
+    color: #fff;
+}
+
+.form .ed {
+    width: 40rem;
+    background-color: #36A0FB;
+    color: #fff;
+}
+
+.datalist table thead tr td:last-child,
+.datalist table tbody tr td:last-child {
+    text-align: center;
+    width: 21rem;
+}
+
+.form .sendtxt, .form .contain {
+    width: 98%;
+    height: 4rem;
+    color: #000;
+    border: 1px solid #888888;
+    border-radius: 8px;
+    padding: 1rem;
+    box-sizing: border-box;
+    background: #fff;
+    text-align: center;
+}
+
+.form .contain {
+    position: relative;
+}
+
+.form .contain span {
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.form select {
+    width: 100%;
+    height: 4rem;
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    opacity: 0;
+}
+
+.form span, .checkboxDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.form select option,
+.form select {
+    text-align: center;
+}
+
+.form .sendtxt {
+    color: #333333;
+}
+
+.form .short {
+    width: 40%;
+    display: inline-block;
+}
+
+#agentServers, #gameServers {
+    cursor: pointer;
+}
+
+#viewData .view {
+    padding: 1rem;
+    box-sizing: border-box;
+    background: #fff;
+    width: 96%;
+    border-bottom: 1px solid #333;
+}
+
+/* checkbox */
+.checkboxDiv {
+    height: auto;
+    font-size: 0;
+    top: 4rem;
+    left: -1px;
+    z-index: 100;
+    background-color: #f6f6f6;
+    border: 1px solid #36A0FB;
+    display: none;
+}
+
+.checkboxDiv .close_checkbox {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    height: 2rem;
+    line-height: 2rem;
+    background: #36A0FB;
+    overflow: hidden;
+}
+
+.checkboxDiv .close_checkbox i {
+    font-size: 2rem;
+    font-style: normal;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+.checkboxDiv table {
+    width: 100%;
+    text-align: left;
+}
+
+.checkboxDiv table tbody tr td {
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    position: relative;
+    width: 50%;
+    height: 4rem;
+    vertical-align: top;
+    overflow: hidden;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+#checkboxTable tbody tr td:first-child {
+    text-align: left;
+    width: 50%;
+}
+
+.checkboxDiv tbody tr td:nth-child(1) {
+    border-right: 1px solid #36A0FB;
+}
+
+.checkboxDiv tbody tr:last-of-type {
+    border-bottom: 0;
+}
+
+.checkboxDiv tbody tr {
+    border-bottom: 1px solid #36A0FB;
+}
+
+.checkboxDiv label {
+    margin: 1.1rem 1rem 1rem;
+    width: 100%;
+    display: block;
+}
+
+.checkboxDiv input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 4rem;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.checkboxDiv b {
+    border: 1px solid #666;
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    overflow: hidden;
+    border-radius: 4px;
+    position: absolute;
+
+}
+
+.checkboxDiv img {
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.checkboxDiv tbody tr td input[type='checkbox']:checked + b, .checkboxDiv tbody tr td input[type='checkbox']:checked + b img {
+    background-color: #ca572a;
+    border-color: transparent;
+    opacity: 1;
+}
+
+.checkboxDiv span {
+    display: block;
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 4rem;
+
+}
+
+#addLine {
+    color: #3C74F2;
+    text-decoration: underline;
+}
+
+#editDiv {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 65rem;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 1rem;
+    font-size: 0;
+}
+
+#editDiv div {
+    border-bottom: 1px solid #333;
+    padding: .6rem 0;
+    font-size: 1.4rem;
+    overflow: hidden;
+}
+
+#editDiv .insert {
+    text-align: center;
+}
+
+#editDiv .top-edit, #editDiv .sub-add {
+    padding: .4rem .2rem;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+}
+
+#editDiv .sub-add {
+    text-align: right;
+}
+
+#editDiv .sub-add input[type='button'] {
+    padding: .2rem .4rem;
+    background-color: #36A0FB;
+    color: #fff;
+    cursor: pointer;
+}
+
+#editDiv .top-edit:hover {
+    color: #36A0FB;
+}
+
+#editDiv div.agent p, #editDiv div.game p {
+    float: left;
+    width: 50%;
+    margin: 0;
+    font-size: 1.4rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+#editDiv i.delete {
+    font-style: normal;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+#gameIp, #game, #agentIp {
+    line-height: 3rem;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+#editDiv .contain select {
+    height: 100%;
+}
+
+#editDiv .insert_p, #editDiv .insert_a {
+    font-size: 0;
+    margin: 10px auto;
+    width: 28rem;
+    border: 2px solid #333;
+    padding: 1rem 2rem;
+}
+
+#editDiv .insert_p p {
+    float: none;
+}
+
+#editDiv .insert_p i, #editDiv .insert_a i {
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+    width: 5rem;
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.4rem;
+    font-style: normal;
+}
+
+#editDiv .num_p {
+    width: auto;
+}
+
+#editDiv .insert_p p {
+    font-weight: 500;
+    text-align: left;
+}
+
+#editDiv .insert_p div, #editDiv .insert_a div {
+    border: none;
+    font-size: 0;
+}
+
+#editDiv .contain {
+    position: relative;
+    width: 20rem;
+    padding: 0;
+    height: 3rem;
+    display: inline-block;
+    margin-left: 2rem;
+}
+
+#editDiv .insert_a .contain {
+    float: none;
+}
+
+#editDiv .left_Div {
+    text-align: right;
+}
+
+#editDiv .addTitle {
+    background-color: #888;
+}
+
+#editDiv .addTitle p {
+    color: #fff;
+    padding-left: 2rem;
+    box-sizing: border-box;
+    font-weight: 600;
+    margin: 0
+}
+
+#editDiv div.game p {
+    width: 20%;
+    display: inline-block;
+}
+
+.left_Div input[type='button'] {
+    padding: .4rem 2rem;
+    margin-right: 2rem;
+    cursor: pointer;
+    background-color: #36A0FB;
+    color: #fff;
+}
+
+.left_Div input[type='button']:hover, #editDiv .sub-add input[type='button']:hover {
+    background-color: #3C74F2;
+}
+
+#editDiv .num {
+    line-height: 3rem;
+    width: 20rem;
+    height: 3rem;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #888;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 0 .4rem;
+    margin-left: 2rem;
+    text-align: center;
+}
+
+/* ----------- loading -----------*/
+
+.load {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 10;
+    background: rgba(253, 253, 253, .8);
+    display: none;
+}
+
+.loader {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 25%;
+    max-width: 60%;
+    height: 12rem;
+    align-items: center;
+    justify-content: center;
+    margin: 16rem auto 0;
+    border: 2px solid #eee;
+    padding-top: 1rem;
+    background-color: #fff;
+    border-radius: 8px
+}
+
+.load p {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.4rem;
+}
+
+.load .suc {
+    margin-top: -1rem;
+}
+
+.load .suc span {
+    font-size: 2.4rem;
+    color: #81b962;
+}
+
+@-webkit-keyframes rotate_pacman_half_up {
+    0% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+    50% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+}
+
+@keyframes rotate_pacman_half_up {
+    0% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+    50% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg);
+    }
+}
+
+@-webkit-keyframes rotate_pacman_half_down {
+    0% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    50% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotate_pacman_half_down {
+    0% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    50% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+}
+
+@-webkit-keyframes pacman-balls {
+    75% {
+        opacity: 0.7;
+    }
+    100% {
+        -webkit-transform: translate(-100px, -6.25px);
+        transform: translate(-100px, -6.25px);
+    }
+}
+
+@keyframes pacman-balls {
+    75% {
+        opacity: 0.7;
+    }
+    100% {
+        -webkit-transform: translate(-100px, -6.25px);
+        transform: translate(-100px, -6.25px);
+    }
+}
+
+.pacman {
+    position: relative;
+}
+
+.pacman > div:nth-child(2) {
+    -webkit-animation: pacman-balls 1s 0s infinite linear;
+    animation: pacman-balls 1s 0s infinite linear;
+}
+
+.pacman > div:nth-child(3) {
+    -webkit-animation: pacman-balls 1s 0.33s infinite linear;
+    animation: pacman-balls 1s 0.33s infinite linear;
+}
+
+.pacman > div:nth-child(4) {
+    -webkit-animation: pacman-balls 1s 0.66s infinite linear;
+    animation: pacman-balls 1s 0.66s infinite linear;
+}
+
+.pacman > div:nth-child(5) {
+    -webkit-animation: pacman-balls 1s 0.99s infinite linear;
+    animation: pacman-balls 1s 0.99s infinite linear;
+}
+
+.pacman > div:first-of-type {
+    width: 0px;
+    height: 0px;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #333;
+    border-left: 25px solid #333;
+    border-bottom: 25px solid #333;
+    border-radius: 25px;
+    -webkit-animation: rotate_pacman_half_up 0.5s 0s infinite;
+    animation: rotate_pacman_half_up 0.5s 0s infinite;
+}
+
+.pacman > div:nth-child(2) {
+    width: 0px;
+    height: 0px;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #333;
+    border-left: 25px solid #333;
+    border-bottom: 25px solid #333;
+    border-radius: 25px;
+    -webkit-animation: rotate_pacman_half_down 0.5s 0s infinite;
+    animation: rotate_pacman_half_down 0.5s 0s infinite;
+    margin-top: -50px;
+}
+
+.pacman > div:nth-child(3),
+.pacman > div:nth-child(4),
+.pacman > div:nth-child(5),
+.pacman > div:nth-child(6) {
+    background-color: #333;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin: 2px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    -webkit-transform: translate(0, -6.25px);
+    -ms-transform: translate(0, -6.25px);
+    transform: translate(0, -6.25px);
+    top: 25px;
+    left: 100px;
+}
+
+@-webkit-keyframes stretchdelay {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4)
+    }
+    20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0)
+    }
+}
+
+@keyframes stretchdelay {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4)
+    }
+    20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0)
+    }
+}
+
+.animated {
+    -webkit-animation-duration: .8s;
+    animation-duration: .8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+@-webkit-keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-2000px) scale(.8);
+        transform: translateY(-2000px) scale(.8);
+    }
+    70% {
+        -webkit-transform: translateY(-20px) scale(.6);
+        transform: translateY(-20px) scale(.6)
+    }
+    100% {
+        -webkit-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1)
+    }
+}
+
+@keyframes bounceInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-2000px) scale(.8);
+        transform: translateY(-2000px) scale(.8);
+    }
+    70% {
+        -webkit-transform: translateY(-20px) scale(.6);
+        transform: translateY(-20px) scale(.6)
+    }
+    100% {
+        -webkit-transform: translateY(0) scale(1);
+        transform: translateY(0) scale(1)
+    }
+}
+
+.bounceInDown {
+    -webkit-animation-name: bounceInDown;
+    animation-name: bounceInDown
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        -webkit-text-size-adjust: none;
+    }
+
+    .form {
+        font-size: 8px;
+    }
+
+    .form > table tbody tr td {
+        padding: .6rem .4rem 0;
+        font-size: 1.2rem;
+    }
+
+    #container {
+        padding: 0 .6rem;
+    }
+
+    #container .head {
+        height: auto;
+    }
+
+    .form > table tbody tr td:first-child {
+        width: auto;
+    }
+
+    .form .sendtxt, .form .contain {
+        padding: .4rem .2rem;
+        height: 3rem;
+    }
+
+    .form select {
+        height: 3rem;
+    }
+
+    .form table tbody tr td {
+        height: 3rem;
+        line-height: 3rem;
+    }
+
+    .datalist table tbody tr td {
+        padding: .6rem .2rem .6rem 0;
+    }
+
+    .datalist table thead tr td:last-child, .datalist table tbody tr td:last-child {
+        width: 17rem;
+        font-size: 5px;
+    }
+
+    .datalist table thead tr td:not(.on), .datalist table tbody tr td:not(.on) {
+        display: none;
+    }
+
+    .datalist .edit, .datalist .look {
+        margin-left: .2rem;
+        padding: 0 .2rem;
+    }
+
+    #container .modal {
+        width: 92%;
+        padding: .6rem .2rem;
+    }
+
+    .form .sub,
+    .form .ed {
+        width: 24rem;
+    }
+
+    .modal p {
+        margin-bottom: .4rem;
+        padding: 0 .4rem 0 .2rem;
+    }
+
+    .checkboxDiv b {
+        left: .2rem;
+    }
+
+    .checkboxDiv span {
+        font-size: 1rem;
+        padding-left: 2rem;
+    }
+
+    #editDiv .addTitle p {
+        font-size: 1.4rem;
+    }
+
+    #editDiv .insert_p, #editDiv .insert_a {
+        width: 18rem;
+        padding: .4rem;
+    }
+
+    #editDiv .contain, #editDiv .num {
+        width: 12rem;
+        margin-left: 1rem;
+    }
+
+    #editDiv .insert_p i, #editDiv .insert_a i {
+        width: 4rem;
+        font-size: 1.2rem;
+    }
+
+    #gameIp, #game, #agentIp, .header .title {
+        font-size: 1.2rem;
+    }
+
+    #editDiv div.agent p, #editDiv div.game p {
+        padding: 0;
+        font-size: 1.2rem;
+    }
+
+    #editDiv div.game p {
+        width: auto;
+    }
+}

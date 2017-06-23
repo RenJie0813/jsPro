@@ -1,0 +1,18 @@
+{
+  "BG/BG.js": "BG/BG.js?v=ae1772c9b0",
+  "common.js": "common.js?v=bea3688bb4",
+  "index.js": "index.js?v=83de7f6b75",
+  "main.js": "main.js?v=8971778a9c",
+  "server/add.js": "server/add.js?v=37008a3a8a",
+  "server/edit.js": "server/edit.js?v=4eb76c90da",
+  "server/list.js": "server/list.js?v=b3e4279fe8",
+  "utils/CheckLoged.js": "utils/CheckLoged.js?v=3df6683638",
+  "utils/CheckScript.js": "utils/CheckScript.js?v=0d934aade8",
+  "utils/CommonMethods.js": "utils/CommonMethods.js?v=c5762340e4",
+  "utils/login.js": "utils/login.js?v=31bfeb3107",
+  "version/add.js": "version/add.js?v=b6b2f646f5",
+  "version/edit.js": "version/edit.js?v=b92d2916c3",
+  "version/game.js": "version/game.js?v=7e6020a50e",
+  "version/list.js": "version/list.js?v=410f03ac22",
+  "zepto.min.js": "zepto.min.js?v=44b1ed8427"
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>loading</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+        }
+        
+        .loadEffect,
+        .loadend {
+            width: 5rem;
+            height: 5rem;
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            margin-left: -2.5rem;
+        }
+        
+        .loadEffect span {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: #333;
+            position: absolute;
+            -webkit-animation: load 1.04s ease infinite;
+        }
+        
+        @-webkit-keyframes load {
+            0% {
+                -webkit-transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                -webkit-transform: scale(.3);
+                opacity: 0.5;
+            }
+        }
+        
+        .loadEffect span:nth-child(1) {
+            left: 0;
+            top: 50%;
+            margin-top: -.5rem;
+            -webkit-animation-delay: 0.13s;
+            animation-delay: 0.13s;
+        }
+        
+        .loadEffect span:nth-child(2) {
+            left: .7rem;
+            top: .7rem;
+            -webkit-animation-delay: 0.13s;
+            animation-delay: 0.13s;
+        }
+        
+        .loadEffect span:nth-child(3) {
+            left: 50%;
+            top: 0;
+            margin-left: -.5rem;
+            -webkit-animation-delay: 0.39s;
+            animation-delay: 0.39s;
+        }
+        
+        .loadEffect span:nth-child(4) {
+            top: .7rem;
+            right: .7rem;
+            -webkit-animation-delay: 0.52s;
+            animation-delay: 0.52s;
+        }
+        
+        .loadEffect span:nth-child(5) {
+            right: 0;
+            top: 50%;
+            margin-top: -.5rem;
+            -webkit-animation-delay: 0.65s;
+            animation-delay: 0.65s;
+        }
+        
+        .loadEffect span:nth-child(6) {
+            right: .7rem;
+            bottom: .7rem;
+            -webkit-animation-delay: 0.78s;
+            animation-delay: 0.78s;
+        }
+        
+        .loadEffect span:nth-child(7) {
+            bottom: 0;
+            left: 50%;
+            margin-left: -.5rem;
+            -webkit-animation-delay: 0.91s;
+            animation-delay: 0.91s;
+        }
+        
+        .loadEffect span:nth-child(8) {
+            bottom: .7rem;
+            left: .7rem;
+            -webkit-animation-delay: 1.04s;
+            animation-delay: 1.04s;
+        }
+        
+        #loading {
+            width: 13.5rem;
+            height: 9rem;
+            background-color: cornflowerblue;
+            border-radius: .8rem;
+            padding: 1.2rem 0;
+            position: fixed;
+            top: 3rem;
+            left: 50%;
+            margin-left: -7rem;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #loadDesc {
+            text-align: center;
+            padding-top: .5rem;
+            font-size: .9rem;
+            position: absolute;
+            top: 5.5rem;
+            width: 100%;
+        }
+        
+        .loadend {
+            width: 8rem;
+            position: absolute;
+            top: .4rem;
+            left: 50%;
+            margin-left: -4rem;
+            z-index: 10;
+            background-color: #333;
+            transition: .4s ease-out;
+            -webkit-transition: .4s ease-out;
+            transform: translateY(1rem);
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading">
+        <div class="loadEffect">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="loadend"></div>
+        <p id="loadDesc">loading</p>
+    </div>
+    <br>
+    <input type="button" name="" value="Go" id="ok">
+    <input type="button" name="" value="err" id="err">
+
+    <script>
+        function loadState(msg) {
+            var start = document.querySelector('.loadEffect');
+            var end = document.querySelector('.loadend');
+            var desc = document.getElementById('loadDesc');
+            start.style.opacity = 1;
+            end.style.display = 'none';
+            desc.innerHTML = msg;
+        }
+        ok.addEventListener('click', loadState);
+        err.addEventListener('click', loadState);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #container {
+            width: 240px;
+            margin: 30px auto;
+            border: 1px solid seagreen;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        ul {
+            margin: 0 auto;
+            width: 160px;
+        }
+        
+        li {
+            width: 160px;
+            height: 90px;
+            list-style: none;
+            margin: 15px 5px;
+            background: url(loading.gif) center center no-repeat;
+            border: 1px dashed green;
+        }
+        
+        img {
+            width: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://dl.bizhi.sogou.com/images/2014/12/02/986640.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170473_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170473_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170473_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170473_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170473_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170473_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170475_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170477_s_90_2_219x160.jpg"></li>
+            <li data-src="http://imgstore.cdn.sogou.com/app/a/100540002/1170479_s_90_2_219x160.jpg"></li>
+        </ul>
+    </div>
+    <script src="lazyLoad.js"></script>
+
+    <!-- Promise -->
+    <script>
+        function start() {
+            return new Promise(function(resolve, reject) {
+                console.log('TODU : start函数之后，每个回调函数响应时间为1s');
+
+                setTimeout(function() {
+                    resolve('Start Result');
+                }, 1000);
+            });
+        }
+
+        function callback1(msg) {
+            console.log(msg);
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve('Callback1 Result');
+                }, 1000);
+            });
+        }
+
+        function callback2(msg) {
+            console.log(msg);
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve('Callback2 Result');
+                }, 1000);
+            });
+        }
+
+        function last(msg) {
+            console.log(msg);
+            setTimeout(() => {
+                console.log('You have get this !');
+                console.log('-------------------------');
+
+                console.log('并行执行，最后返回所有结果集');
+                Promise.all([start(), callback1(), callback2()])
+                    .then(
+                        function(result) {
+                            console.log(result);
+                        }
+                    );
+            }, 1000);
+        }
+
+        start()
+            .then(callback1)
+            .catch(function(err) {
+                console.log('Callback1 Error');
+            })
+            .then(callback2)
+            .catch(function(err) {
+                console.log('callback2 Error');
+            })
+            .then(last)
+            .catch(function(err) {
+                console.log(err);
+            });
+    </script>
+
+</body>
+
+</html>

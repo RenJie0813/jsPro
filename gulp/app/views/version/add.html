@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>后台管理</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="../../styleSheets/media.css">
+    <style type="text/css" rel="stylesheet">
+        html,body{width:100%;margin:0;padding:0;font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
+        .header{height:40px;width:100%;background-color:#242424;position:fixed;overflow:hidden;}
+        .header_title{line-height:40px;margin-left:5%;color:#fff;font-size:15px;}
+        .header_user{font-size:12px;margin-left:20px;color:#ccc;}
+        .panel{width:100%;height:80%;padding-top:40px;background-color:#242424;padding-bottom: 5px}
+        .panel_item{width:100%;height:45px}
+        a{text-decoration: none;color:#fff;}
+        .panel_item>a{width:15%;height:45px;display:inline-block;line-height:45px;font-size:1.5rem;color:#fff;text-align:center;margin-left:5px;}
+        .addinfo{width:95%;padding-top:20px;margin-left:5%;margin-right:auto;font-size:13px;margin-bottom: 20px}
+        .addinfo input[type='text']{width:70%;height:28px;margin-bottom:10px;outline:none;padding-left:5px;}
+        .addinfo input[type='radio']{margin-top: 10px;margin-bottom:20px;outline:none;margin-left:10%;}
+        .addinfo span{display:inline-block;width: 17%;padding-right: 5%}
+        .addinfo_btn{width:70%;height:35px;text-align:center;line-height:35px;border:1px solid #ccc;margin-left:22%;margin-top:20px;border-radius:5px;}
+        .addinfo_btn:hover{background-color:#36A0FB;color:#fff;border:1px solid #36A0FB;cursor: pointer}
+        a{color:#fff;text-decoration:none;}
+        .userSpan{text-decoration: underline}
+        .remind{color:#EE735C;font-size: 0.8rem;width:100%}
+        .remindiv{width:70%;height:35px;text-align:center;line-height:35px;margin-left:22%;margin-top:20px;border-radius:5px;}
+        .head_left{float: left}
+        .head_right{float: right;margin-right:20px}
+        .head_mid{position: absolute;left: 45%}
+        .HinxVerBtn{
+            color: #36A0FB;
+            font-weight: 500;
+            border: 1px solid #36A0FB;
+            padding: 0 1rem;
+            cursor: pointer;
+            height: 3rem;
+            line-height: 1.5rem;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            background-color: #fff;
+            margin-bottom: 10px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="header">
+        <div class="header_title">
+            <div class="head_left"><a id="backToIndex">后台管理系统</a></div>
+            <div class="head_right"><span class="header_user">欢迎你 <span class="userSpan"></span>,<a style="color:#39A3F9" id="loginOut" >登出</a></span></div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="panel_item">
+            <a style="background-color:#EE735C;" href="../../views/server/list.html">服务列表</a>
+            <a style="background-color:#D94C59;" href="../../views/BGManager/list.html">BG管理</a>
+            <a style="background-color:#FEC536;" href="../../views/version/list.html">版本管理</a>
+        </div>
+    </div>
+</div>
+<div style="padding-top:10%">
+    <div class="addinfo">
+
+        <div>
+            <span>名称 </span><input id="name" type="text" />
+        </div>
+        <div >
+            <div id="hinxBox">
+                <div class="hinxVer"><span>引擎文件 </span><input class="hinxVerInput"  type="text" /></div>
+            </div>
+            <!--<span></span><button class="HinxVerBtn" id="addHinxVer">添加引擎</button>-->
+            <!--<button class="HinxVerBtn" id="decHinxVer" style="margin-left: 20px">减少引擎</button>-->
+        </div>
+        <div>
+            <span>服务器端框架 </span><input id="serverVer" type="text" />
+        </div>
+        <!--<div id="infoDiv">-->
+            <!--<span>对应版本号 </span><input id="infos" type="text" style="visibility: hidden"/>-->
+            <!--<span>Base</span><input id="Base" type="text" />-->
+            <!--<span>Sound</span><input id="Sound" type="text"  />-->
+            <!--<span>Sheets</span><input id="Sheets" type="text"  />-->
+            <!--<span>Ui</span><input id="Ui" type="text"  />-->
+            <!--<span>Rule</span><input id="Rule" type="text"  />-->
+            <!--<span>Loader</span><input id="Loader" type="text"  />-->
+            <!--<span>Guide</span><input id="Guide" type="text"  />-->
+            <!--<span>Server</span><input id="Server" type="text"  />-->
+        <!--</div>-->
+        <!--<div id="fixedDiv">-->
+            <!--<span>版本固定</span> <input type="radio" name="Fiexed" value='true' >固定版本-->
+                                    <!--<input type="radio" name="Fiexed" value='false' checked="checked">不固定-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<span>正使用的运营组 </span><input id="usedBG" type="text"/>-->
+        <!--</div>-->
+        <div class="addinfo_btn">发布版本</div>
+        <div class="remindiv"><p class="remind">* 该操作会创建全新的版本</p></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../../javaScripts/zepto.min.js"></script>
+<script src="../../javaScripts/utils/CommonMethods.js"></script>
+<script src="../../javaScripts/common.js"></script>
+<script src="../../javaScripts/version/add.js"></script>
+</body>
+</html>

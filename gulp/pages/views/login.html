@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>后台管理</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <style type="text/css" rel="stylesheet">
+        html,body{width:100%;height:100%;margin:0;padding:0;font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
+        .header{height:40px;width:100%;background-color:#242424;position:fixed;}
+        .header_title{line-height:40px;margin-left:5%;color:#fff;font-size:15px;}
+        .panel{width:90%;height:500px;margin-left:5% ;margin-right:auto;padding-top:100px;font-size:14px;}
+        a{text-decoration: none;color:#fff;}
+        .login_input>span{display: inline-block;width:15%;}
+        #btn{
+            background-color:#3C74F2;width:70%;height:32px;line-height:32px;text-align: center;color:#fff;border-radius:4px;
+            margin-top:30px;margin-left:20%;
+        }
+        input{height:28px;line-height:28px;width:75%;border:1px solid #ddd; border-radius:4px;margin-left:5px;margin-bottom:10px;outline: none;padding-left:10px;}
+    </style>
+    <link rel="stylesheet" href="../styleSheets/media.css?v=5d23a57ae8">
+</head>
+<body>
+<div class="header">
+    <div class="header_title"><a id="backToIndex">后台管理系统</a></div>
+</div>
+<form action="" method="post" id="loginForm">
+    <div class="panel">
+        <div class="login_input">
+            <span style="font-weight: 600;color:#666;">用户名</span>
+            <input id="username" name="username" placeholder="请输入用户名"/>
+        </div>
+        <div class="login_input">
+            <span style="font-weight: 600;color:#666;">密码</span>
+            <input id="password" name="password" type="password" placeholder="请输入密码"/>
+        </div>
+        <div id="btn">
+            登录
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript" src="../javaScripts/zepto.min.js?v=44b1ed8427"></script>
+<script src="../javaScripts/common.js?v=bea3688bb4"></script>
+<script type="text/javascript" src="./../javaScripts/utils/login.js?v=31bfeb3107"></script>
+</body>
+</html>

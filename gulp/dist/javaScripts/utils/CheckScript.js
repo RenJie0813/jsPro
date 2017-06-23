@@ -1,0 +1,1 @@
+"use strict";var MoveJavascript=["gamee456"];window.onload=function(){for(var r={},a=document.getElementsByTagName("script"),e=0;e<a.length;e++){r[a[e].src]=[];for(var c in MoveJavascript)-1!==a[e].src.indexOf(MoveJavascript[c])&&(r[a[e].src]=1)}for(var i in r)if(1===r[i]){var o="script[src='"+i+"']";$(o).remove()}};
